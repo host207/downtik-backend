@@ -113,13 +113,15 @@ def home():
         }
     })
 
-if __name__ == '__main__':
+if name == 'main':
+    port = int(os.environ.get('PORT', 5000))
+    
     logger.info("🚀 Starting DownTik Backend Server...")
-    logger.info("📡 Server will be available at: http://0.0.0.0:5000")
-    logger.info("🔗 API endpoint: http://YOUR_IP:5000/api/instagram")
+    logger.info(f"📡 Server will be available on port: {port}")
+    logger.info("🔗 API endpoint: /api/instagram")
     
     app.run(
-        host='0.0.0.0',  # للسماح بالاتصال من أجهزة أخرى
-        port=5000,
-        debug=True
+        host='0.0.0.0',
+        port=port,
+        debug=False
     )
